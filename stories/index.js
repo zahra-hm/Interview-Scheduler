@@ -5,15 +5,14 @@ import { action } from "@storybook/addon-actions";
 
 import "index.scss";
 
+import Button from "components/Button";
 import DayListItem from "components/DayListItem";
 import DayList from "components/DayList";
 import InterviewerList from "components/InterviewerList"
 import InterviewerListItem from "components/InterviewerListItem"
 
-// import "components/DayListItem.scss";
 
-
-import Button from "components/Button";
+// Buttons
 
 storiesOf("Button", module)
   .addParameters({
@@ -30,6 +29,8 @@ storiesOf("Button", module)
       Disabled
     </Button>
   ));
+
+  //DayList
 
   storiesOf("DayListItem", module) //Initiates Storybook and registers our DayListItem component
     .addParameters({
@@ -70,6 +71,8 @@ storiesOf("Button", module)
     .add("Tuesday", () => (
       <DayList days={days} day={"Tuesday"} setDay={action("setDay")} />
     ));
+
+    // Interviewer
 
     const interviewer = {
       id: 1,
@@ -130,3 +133,12 @@ storiesOf("Button", module)
             setInterviewer={action("setInterviewer")}
           />
         ));
+
+        //Appointment
+
+        storiesOf("Appointment", module)
+          .addParameters({
+            backgrounds: [{ name: "white", value: "#fff", default: true }]
+          })
+          .add("Appointment", () => <Appointment />)
+          .add("Appointment with Time", () => <Appointment time="12pm" />);
