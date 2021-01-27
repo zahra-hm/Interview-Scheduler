@@ -2,11 +2,18 @@ import React, {useState} from 'react'
 export default function useVisualMode(initial) {
   const [mode, setMode] = useState(initial);
   const [history, setHistory] = useState([initial]);
-  function transition(newMode, replace = false) {
+  function transition(newMode, replace) {
     setMode(newMode)
-    let newHistory = [...history, newMode]
-    if(replace) newHistory = [...history]
-    setHistory(newHistory)
+    setHistory(prev => {
+      if(replace){
+        let newArray = [...prev]
+        newArray.pop()
+        newArray.push(newMode)
+        return newArray
+        } else {
+            return [...prev,newMode]
+        }
+    })
   }
 
   const back = () => {
