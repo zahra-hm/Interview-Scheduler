@@ -157,7 +157,7 @@ storiesOf("Button", module)
           .add("Show", () => (
             <Show 
               student="Lydia Miller-Jone" 
-              interviewer={interviewer} 
+              interviewer={interviewers} 
               onEdit={action("onEdit")} 
               onDelete = {action("onDelete")} />))
           .add("Confirm", () => (
@@ -206,7 +206,7 @@ storiesOf("Button", module)
                 <Appointment
                   id={1}
                   time="12pm"
-                  interview={{ student: "Lydia Miller-Jones", interviewer }}
+                  interview={{ student: "Lydia Miller-Jones", interviewers }}
                 />
                 <Appointment id="last" time="1pm" />
               </Fragment>
