@@ -27,7 +27,7 @@ const state = {
     "4": { id: 4, time: "3pm", interview: null },
     "5": {
       id: 5,
-      time: "4pm",
+      time: "2pm",
       interview: { student: "Chad Takahashi", interviewer: 2 }
     }
   },
