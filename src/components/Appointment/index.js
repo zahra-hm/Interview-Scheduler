@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useVisualMode from "hooks/useVisualMode";
 
 // imported styles
@@ -30,6 +30,14 @@ export default function Appointment(props) {
     props.interview ? SHOW : EMPTY
   );
 
+  useEffect(() => {
+    if (props.interview && mode === EMPTY) {
+      transition(SHOW)
+    }
+    if (props.interview === null && mode === SHOW) {
+      transition(EMPTY)
+    } 
+  },[props.interview, transition, mode])
 
 function save(name, interviewer) {
   const interview = {
@@ -88,4 +96,5 @@ const edit = ()=>{
 
     {mode === ERROR_DELETE && <Error message = 'Sorry can not delete appointment ' onClose={() => back()}/>}
     </article>
-  )}
+  )
+}

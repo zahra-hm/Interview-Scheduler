@@ -17,6 +17,10 @@ export default function useVisualMode(initial) {
   }
 
   const back = () => {
+    console.log(history);
+    if (history.length < 2) {
+      return
+    }
     let previous = [...history]
     previous.pop()
     setHistory(previous)
@@ -24,5 +28,5 @@ export default function useVisualMode(initial) {
       setMode(previous[previous.length-1])
     }
   }
-  return { mode, transition, back };
+  return { mode: history[history.length -1], transition, back };
 } 

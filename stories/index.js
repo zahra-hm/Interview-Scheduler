@@ -172,12 +172,19 @@ storiesOf("Button", module)
             />
             ))
 
-          .add("Error", () => (
-          <Error
-            message="Could not delete appointment."
-            onClose={action("onClose")}
-          />
-          )) 
+            .add("Error-deleting", () => (
+              <Error
+                message="Could not delete appointment."
+                onClose={action("onClose")}
+              />
+              ))
+        
+              .add("Error-saving", () => (
+                <Error
+                  message="Could not save appointment."
+                  onClose={action("onClose")}
+                />
+                ))
           .add("Create", () => (
             <Form
               interviewers={interviewers}
